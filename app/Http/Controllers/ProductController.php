@@ -20,7 +20,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('products/product-form');
+
     }
 
     /**
