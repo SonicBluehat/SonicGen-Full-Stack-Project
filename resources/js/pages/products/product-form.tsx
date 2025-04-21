@@ -1,3 +1,4 @@
+import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CustomTextarea } from '@/components/ui/custom-textarea';
@@ -9,6 +10,7 @@ import { type BreadcrumbItem } from '@/types';
 import { Textarea } from '@headlessui/react';
 import { Head, Link, useForm } from '@inertiajs/react';
 import { Description } from '@radix-ui/react-dialog';
+import { error } from 'console';
 import { describe } from 'node:test';
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -17,6 +19,8 @@ const breadcrumbs: BreadcrumbItem[] = [
         href: route('products.create'),
     },
 ];
+
+
 
 
 
@@ -37,6 +41,14 @@ export default function ProductForm() {
 
         // console.log("data",data);
     }
+
+
+    // File Hnadle
+        const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement> ) => {
+            if(e.target.files && e.target.files.length > 0){
+                setData('featured_image' , e.target.files[0])
+            }
+        }
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Product Management" />
@@ -67,6 +79,8 @@ export default function ProductForm() {
                                 />
                             </div>
 
+                            <InputError message={errors.name} />
+
 
                              {/* Product Description  */}
                              <div className="grid gap-2">
@@ -82,7 +96,9 @@ export default function ProductForm() {
                                 rows={3}
                                 
                                 />
+                            <InputError message={errors.description} />
                             </div>
+
 
 
 
@@ -99,14 +115,18 @@ export default function ProductForm() {
                                     autoFocus
                                     tabIndex={3}
                                 />
+                            <InputError message={errors.price} />
+
                             </div>
 
 
                             {/* Product Featured Image  */}
                             <div className="grid gap-2">
                                 <Label htmlFor='featured_image'>Featured Image</Label>
-                                <Input id='featured_image' name='featured_image' type='file'     autoFocus tabIndex={4}
-                                />
+                                <Input onChange={handleFileUpload} id='featured_image' name='featured_image' type='file'     autoFocus tabIndex={4}
+                                />  
+
+                            <InputError message={errors.featured_image} />
                             </div>
                             {/* submite button  */}
                             <Button type="submit" className="mt-4 w-full cursor-pointer" tabIndex={4}>

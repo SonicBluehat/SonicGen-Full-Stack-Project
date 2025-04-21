@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductFormRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -26,10 +27,17 @@ class ProductController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * @param ProductFormRequest $request
+     * @return /Illuminate/Http/RedirectResponse
      */
-    public function store(Request $request)
+    public function store(ProductFormRequest $request)
     {
-        dd($request->all()); 
+        if($request->file('featured_image')){
+            $featuredImage = $request->file('featured_image');
+            $featuredImageOriginalName = $featuredImage->getClientOriginalName();
+            $featuredImage->store('products','public');
+        }
+        // dd($request->all()); 
     }
 
     /**
