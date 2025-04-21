@@ -7,6 +7,9 @@ import { Link } from '@inertiajs/react';
 import { BookOpen, Folder, LayoutGrid, ShoppingBag } from 'lucide-react';
 import AppLogo from './app-logo';
 
+
+{/* <Link href="/typing-game" className="text-blue-600 hover:underline">لعبة سرعة الكتابة</Link> */}
+
 const mainNavItems: NavItem[] = [
     {
         title: 'Dashboard',
@@ -16,6 +19,11 @@ const mainNavItems: NavItem[] = [
     {
         title: 'Manage Products',
         href: '/products',
+        icon: ShoppingBag,
+    },
+    {
+        title: 'typing game',
+        href: '/typing-game',
         icon: ShoppingBag,
     },
 ];

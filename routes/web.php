@@ -9,12 +9,16 @@ Route::get('/', function () {
     return Inertia::render('welcome');
 })->name('home');
 
+Route::get('/typing-game', function () {
+    return Inertia::render('TypingGame');
+});
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
         return Inertia::render('dashboard');
     })->name('dashboard');
 
     Route::resource('products' , ProductController::class);
+    
 });
 
 require __DIR__.'/settings.php';
