@@ -26,6 +26,16 @@ const mainNavItems: NavItem[] = [
         href: '/typing-game',
         icon: Gamepad2, 
     },
+    {
+        title: 'Digital Marketing Map',
+        href: '/digital-marketing-map',
+        icon: Gamepad2, 
+    },
+    {
+        title: 'chat',
+        href: '/chat',
+        icon: Gamepad2, 
+    },
 ];
 
 const footerNavItems: NavItem[] = [
