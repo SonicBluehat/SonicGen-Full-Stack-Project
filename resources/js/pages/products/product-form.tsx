@@ -11,6 +11,7 @@ import { Textarea } from '@headlessui/react';
 import { Head, Link, useForm } from '@inertiajs/react';
 import { Description } from '@radix-ui/react-dialog';
 import { error } from 'console';
+import { ArrowLeft } from 'lucide-react';
 import { describe } from 'node:test';
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -56,7 +57,9 @@ export default function ProductForm() {
 
                 {/* back button  */}
                 <div className="ml-auto">
-                    <Link as='button' className='w-fit bg-indigo-800 px-4 py-2 rounded-lg text-white text-mb cursor-pointer hover:opacity-90' href={route('products.index')}>Back to Products</Link>
+                    <Link as='button' className='flex items-center w-fit bg-indigo-800 px-4 py-2 rounded-lg text-white text-mb cursor-pointer hover:opacity-90' href={route('products.index')}>
+                    <ArrowLeft className='me-2'/>  Back to Products
+                    </Link>
                 </div>
                 {/* back button  */}
 
