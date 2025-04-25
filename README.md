@@ -1,40 +1,85 @@
-# 🚀 React + TypeScript + Laravel 12 Starter Kit
+# React + TypeScript + Laravel Starter Kit
 
-Welcome to the **ReactJsTypeScriptAndLaravelBackEnd** project – a modern full-stack starter kit using **Laravel 12**, **React 19**, **TypeScript**, and **Vite 6**. Designed for high-performance SPAs with a clean architecture and developer-friendly tools.
-
----
-
-## ✨ Features
-
-- ✅ Laravel 12 (PHP 8.2+)
-- ✅ React 19 with TypeScript
-- ✅ Vite 6 for blazing-fast frontend builds
-- ✅ Tailwind CSS 4 + Prettier plugin
-- ✅ Inertia.js for single-page app experience
-- ✅ Radix UI components + Lucide icons
-- ✅ SSR-ready with Inertia SSR + Laravel Pail
-- ✅ ESLint + Prettier + Type Checking
-- ✅ PestPHP, Larastan, Rector, Pint for clean PHP code
+A modern full-stack starter kit using Laravel 12, React 19, Vite, Tailwind CSS, and Inertia.js.
 
 ---
 
-## 📦 Tech Stack Overview
+## 🚀 Features
 
-| Layer        | Technology                     |
-|--------------|--------------------------------|
-| Backend      | Laravel 12, PHP 8.2+           |
-| Frontend     | React 19, TypeScript, Vite 6   |
-| Styling      | Tailwind CSS 4                 |
-| Routing      | Inertia.js                     |
-| UI           | Radix UI, Lucide React Icons   |
-| Testing      | PestPHP, PHPStan, Larastan     |
+- ⚡️ Laravel 12 backend (PHP 8.2+)
+- ⚛️ React 19 with TypeScript
+- 🎨 Tailwind CSS 4.0
+- 🎯 ESLint + Prettier + Type Checking
+- 🔁 Inertia.js for full-stack SPA
+- 🧪 Pest for testing (with 100% type coverage)
+- 🧱 Based on Shipfast Labs starter kit
 
 ---
 
-## 🚀 Getting Started
-
-### 1. Clone the Repository
+## 2. Install Dependencies
 
 ```bash
-git clone https://github.com/greenhate/ReactJsTypeScriptAndLaravelBackEnd.git
-cd ReactJsTypeScriptAndLaravelBackEnd
+composer install
+npm install
+
+3. Environment Setup
+bash
+Copy
+Edit
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+SQLite is preconfigured by default. You can switch to MySQL/PostgreSQL in .env.
+
+4. Run the App
+bash
+Copy
+Edit
+composer run dev
+🧰 Useful Commands
+Composer Scripts
+
+Command	Description
+composer run dev	Start Laravel server, queue, and Vite
+composer run dev:ssr	Same as above with SSR & live logs
+composer lint	Run PHP code quality tools
+NPM Scripts
+
+Command	Description
+npm run dev	Start Vite frontend dev server
+npm run build	Build frontend for production
+npm run build:ssr	Build frontend + SSR bundle
+npm run lint	Lint React/TSX code
+npm run format	Auto-format frontend code with Prettier
+npm run types	Check TypeScript types
+🧪 Testing
+Run backend tests using Pest:
+
+bash
+Copy
+Edit
+./vendor/bin/pest
+With 100% type coverage:
+
+bash
+Copy
+Edit
+./vendor/bin/pest --type-coverage --min=100
+📁 Project Structure
+txt
+Copy
+Edit
+.
+├── app/                   # Laravel backend
+├── database/              # Migrations, seeders, factories
+├── resources/
+│   ├── js/                # React frontend
+│   └── css/               # Tailwind entrypoint
+├── routes/                # Laravel + Inertia routes
+├── public/                # Public assets
+├── vite.config.ts         # Vite configuration
+├── tailwind.config.ts     # Tailwind configuration
+├── package.json           # Frontend dependencies
+├── composer.json          # Backend dependencies
+└── ...
+🧱 Based On
